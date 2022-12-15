@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    backgroundImage: {
+                        'bg-section': "url('./image/bg-uyn.png')",
+                    },
+                    container: {
+                        padding: {
+                            xsm: '10px',
+                            sm: '10px',
+                            lg: '10px',
+                            xl: '10px',
+                        },
+                        screens: {
+                            xsm: '310px',
+                            sm: '400px',
+                            lg: '500px',
+                            xl: '600px',
+                            "2xl": '700px',
+                            "3xl": '800px',
+                            "4xl": '900px',
+                            "5xl": '1000px',
+                            "6xl": '1100px',
+
+                        },
+                    },
+                    screens: {
+                        xsm: '310px',
+                        sm: '400px',
+                        lg: '500px',
+                        xl: '600px',
+                        "2xl": '700px',
+                        "3xl": '800px',
+                        "4xl": '900px',
+                        "5xl": '1000px',
+                        "6xl": '1100px',
+                    },
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-bg-section bg-cover  bg-repeat  bg-red-400">
+    <main>
+        <section>
+            <div class="container mx-auto grid 3xl:grid-cols-2 xsm:grid-cols-1 mt-52 items-center gap-x-3">
+                <div class="text-white ">
+                    <h2 class="xsm:text-4xl 3xl:text-6xl text-center font-bold">Learn to code by watching others</h2>
+                    <p class="text-lg text-center mt-2">
+                        See how experiencend devolpers solve problemms in real-time. Watching scripted tutoriols is
+                        gread
+                        but understaning how develper think is invaluable
+                    </p>
+                </div>
+                <div>
+                    <form id="form" action=" https://echo.htmlacademy.ru/"
+                        class="grid grid-cols-1  gap-3 bg-white py-8 px-9 rounded-lg mt-3 ">
+                        <span class="bg-violet-600 text-xs  py-3 rounded-sm w-full pl-2 text-white flex justify-center">
+                            Try if free 7 days then $20/mo. the reafter</span>
+                        <label class="relative">
+                            <input name="First Name"
+                                class="w-full border-2 border-solid border-gray-400  text-xs  py-2 rounded-sm pl-2 "
+                                placeholder="First Name"  type="text" required id="fistName">
+                                <!-- <span  id="error_img" class="absolute right-3 top-1"><img src="./image/erorrr.svg" alt="this is error"></span> -->
+                                <span id="error_fist" class="text-red-500"></span>
+                        </label>
+                        <label class="relative">
+                            <input name="Last Name"  class="w-full border-2 border-solid border-gray-400  text-xs  py-2 rounded-sm pl-2"
+                                placeholder="Last Name" type="text" required id="lastName">
+                                <!-- <span class="absolute right-3 top-1"><img src="./image/erorrr.svg" alt="this is error"></span> -->
+                                <span id="error_last" class="text-red-500"></span>
+                        </label>
+                        <label class="relative">
+                            <input name="Email" class="w-full border-2 border-solid  border-gray-400  text-xs  py-2 rounded-sm pl-2"
+                                placeholder="Email Address" type="email" required id="email">
+                                <!-- <span class="absolute right-3 top-1"><img src="./image/erorrr.svg" alt="this is error"></span> -->
+                                <span id="email_error" class="text-red-500"></span>
+                        </label>
+                        <label class="relative">
+                            <input name="Password" class="w-full border-2 border-solid border-gray-400  text-xs  py-2 rounded-sm pl-2"
+                                placeholder="Password" type="password" required id="password" minlength="4" >
+                                <span class="text-red-500"></span>
+                                <span id="eye"  class="absolute right-3 top-1 cursor-pointer ">()</span>
+                        </label>
+                        <button   class="bg-green-700 text-xs py-3 text-white mt-4 rounded-sm pl-2" id="button"> CLAIM YOUR FREE
+                            TRIAL</button>
+                        <span class="text-xm text-center mt-4">By clicking the button, you are agreeing to out <strong class="text-red-700"> Terms and Services </strong></span>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./index.js"></script>
+</body>
+
+</html>
