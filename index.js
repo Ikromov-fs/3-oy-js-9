@@ -9,6 +9,7 @@ var $eye = document.querySelector('#eye');
 var $error_fist = document.querySelector('#error_fist');
 var $error_last = document.querySelector('#error_last');
 var $email_error = document.querySelector('#email_error');
+var $root = document.querySelector('#root');
 // var $error_img = document.querySelector('#error_img');
 
 $eye.addEventListener('click', function () {
@@ -32,9 +33,10 @@ $fistName.addEventListener('input', function (e) {
     }
 
 });
+
+
 $lastName.addEventListener('input', function (e) {
     var rezultLast = e.target.value;
-    // var displaySettting = $error_img.style.display;
     if (rezultLast.length < 4) {
         $error_last.textContent = 'Last Name cannot be empty !'
         // displaySettting = 'none'
@@ -44,7 +46,10 @@ $lastName.addEventListener('input', function (e) {
     } else {
         $error_last.textContent = 'xato'
     }
+    
 });
+
+
 $email.addEventListener('input', function (e) {
     var rezultLast = e.target.value;
     // var added_item_button = document.getElementById('error_img');
@@ -58,6 +63,37 @@ $email.addEventListener('input', function (e) {
         $email_error.textContent = 'xato'
     }
     
+    
 });
 
+let fist = [""];
 
+function fistName(array) {
+    $root.innerHTML = '';
+    for (let i = 0; i < array.length; i++) {
+        let rezulName = document.createElement("ul");
+        rezulName.textContent = array[i];
+
+        $root.append(rezulName);
+    }
+}
+
+fistName(fist);
+
+function onClick() {
+    fist.push($fistName.value);
+    console.log(fist);
+    fistName(fist);
+
+    $fistName.value = ''
+}
+
+$button.addEventListener("click", onClick);
+
+
+$button.addEventListener("click", function(e){
+    e.preventDefault();
+    $email.value = "";
+    $lastName.value = "";
+    $password.value = "";
+});
