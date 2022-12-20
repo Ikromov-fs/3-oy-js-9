@@ -10,7 +10,8 @@ var $error_fist = document.querySelector('#error_fist');
 var $error_last = document.querySelector('#error_last');
 var $email_error = document.querySelector('#email_error');
 var $root = document.querySelector('#root');
-// var $error_img = document.querySelector('#error_img');
+var $ulEnd = document.getElementById('ulEnd')
+var $liItem = document.querySelector('.liItem')
 
 $eye.addEventListener('click', function () {
     if ($password.type === 'password') {
@@ -34,66 +35,96 @@ $fistName.addEventListener('input', function (e) {
 
 });
 
-
 $lastName.addEventListener('input', function (e) {
     var rezultLast = e.target.value;
     if (rezultLast.length < 4) {
         $error_last.textContent = 'Last Name cannot be empty !'
-        // displaySettting = 'none'
     } else if (rezultLast.length >= 4) {
-        // displaySettting = 'none'
         $error_last.textContent = ''
     } else {
         $error_last.textContent = 'xato'
     }
-    
+
 });
 
 
 $email.addEventListener('input', function (e) {
     var rezultLast = e.target.value;
-    // var added_item_button = document.getElementById('error_img');
     if (rezultLast.length < 4) {
-        // added_item_button.style.display = 'block';
         $email_error.textContent = 'Look like this is not an email !'
     } else if (rezultLast.length >= 4) {
         $email_error.textContent = ''
-        // added_item_button.style.display = 'none';
     } else {
         $email_error.textContent = 'xato'
     }
-    
-    
 });
 
-let fist = [""];
+let rezultEnd = [];
 
-function fistName(array) {
-    $root.innerHTML = '';
-    for (let i = 0; i < array.length; i++) {
-        let rezulName = document.createElement("ul");
-        rezulName.textContent = array[i];
+function rezultFn(e) {
+    e.preventDefault();
 
-        $root.append(rezulName);
+    let rezultName = $fistName.value;
+    let rezultLast = $lastName.value;
+    let rezultEmail = $email.value;
+    let rezultpassword = $password.value;
+
+    let user = {
+        name: rezultName,
+        last: rezultLast,
+        email: rezultEmail,
+        password: rezultpassword,
+    }
+
+    rezultEnd.push(user);
+
+    $fistName.value = '';
+    $lastName.value = '';
+    $email.value = '';
+    $password.value = '';
+
+    
+    console.log(rezultEnd);
+
+    rezultBrz();
+}
+
+$form.addEventListener('submit', rezultFn);
+
+function rezultBrz() {
+    $ulEnd.innerHTML = null; 
+    for (let i = 0; i < rezultEnd.length; i++) {
+
+        let rezutList = document.createElement("li");
+         rezutList.className = "liItem";
+
+        let rezultP = document.createElement("p");
+        rezultP.textContent = rezultEnd[i].name;
+        rezutList.append(rezultP);
+
+
+        let rezultLast = document.createElement("p");
+        rezultLast.textContent = rezultEnd[i].last;
+        rezutList.append(rezultLast);
+
+        let rezultEmail = document.createElement("p");
+        rezultEmail.textContent = rezultEnd[i].email;
+        rezutList.append(rezultEmail);
+
+        let rezultpassword = document.createElement("p");
+        rezultpassword.textContent = rezultEnd[i].password;
+        rezutList.append(rezultpassword);
+
+        $ulEnd.append(rezutList);
     }
 }
 
-fistName(fist);
-
-function onClick() {
-    fist.push($fistName.value);
-    console.log(fist);
-    fistName(fist);
-
-    $fistName.value = ''
-}
-
-$button.addEventListener("click", onClick);
 
 
-$button.addEventListener("click", function(e){
-    e.preventDefault();
-    $email.value = "";
-    $lastName.value = "";
-    $password.value = "";
-});
+
+
+
+
+
+
+
